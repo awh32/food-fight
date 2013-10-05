@@ -2,29 +2,55 @@
 using System.Collections;
 
 public class FoodThrowing : MonoBehaviour {
-	//these will ideally be inputed based on flick speed and then put at a celing
-	public static float x = 1;
-	public static float y = 2;
-	public static float z = 3;
-	Vector3 project = new Vector3(x,y,z);
+
+//initialization variables
+private Vector3 foodPosition = new Vector3(0,0,0);	
+private bool isDragging = false;
+private Vector3 lastMousePosition = new Vector3(0,0,0);
+private Vector3 deltaMouse = new Vector3(0,0,0);
+private Vector3 temp = new Vector3(0,0,0);
+private Vector3 MousePos = new Vector3(0,0,0);
 	
-	// Use this for initialization
-	void Start () {
+public void Update(){
+	//set the food position to where the food currently is
+	foodPosition = this.transform.position;
+	MousePos = Input.mousePosition;
+	MousePos.x = MousePos.x - Screen.width/2;
+	MousePos.y = MousePos.y - Screen.height/2;
+
+	//checks to see if you are hovering over the food
+	if(MousePos.x == foodPosition.x && MousePos.y == foodPosition.y){
+			//on click
+			if(Input.GetMouseButtonDown(0)){
+				isDragging = true;
+			}
+		}
+	
+		//drags the food with the mouse
+	if(isDragging){
+			temp = this.transform.position; 
+			temp.x = MousePos.x;
+			temp = this.transform.position; 
+			temp.y = MousePos.y;
+			this.transform.position = temp;
+			//records where the last place the food was
+			lastMousePosition = MousePos;
+		}
+		
+		//on release
+	if(Input.GetMouseButtonUp(0) && isDragging == true){
+			//makes a throwing vector
+			deltaMouse = MousePos - lastMousePosition;
+			isDragging = false;
+			
+			//throws at speed equal to the difference between the last position and this one
+			this.rigidbody.velocity = new Vector3(deltaMouse.x,deltaMouse.y,0);
+		}
+		
+		
 		
 	}
-	
-	// Update is called once per frame
-	//this will be on touch eventually, once I can do that
-	void FixedUpdate () {
-		rigidbody.AddForce(project,ForceMode.Force);
-	}
-	
-	//I forget how to do this, it doesn't work.
-	void onCollisionEnter(){
-		//check to see if hit target
-		//yes? increment score and run splat animation or some shit like that
-		//no?
-		Destroy(this);
-	}
-	
 }
+
+//TODO: Stop dragging past a certain point on the screen
+//Put a floor/celing on speed
