@@ -29,7 +29,7 @@ public class EnemyMove : MonoBehaviour {
 	 * Once enabled, choose the next node and set positions.
 	 */
 	public void OnEnable() {
-		//currentNode = nextNode;
+		currentNode = nextNode;
 		ChooseNextNode();
 		currentPosition = transform.position;
 		newPosition = nextNode.transform.position;
@@ -43,8 +43,14 @@ public class EnemyMove : MonoBehaviour {
 		
 		if (NodeContact(transform.position, newPosition)) {
 			currentNode = nextNode;
-			enabled = false;
+			transform.position = newPosition;
+			EnterThrowState();		
 		}
+	}
+	
+	private void EnterThrowState() {
+		gameObject.GetComponent<EnemyThrowBehavior>().enabled = true;
+		gameObject.GetComponent<EnemyMove>().enabled = false;
 	}
 	
 	/**
@@ -70,9 +76,13 @@ public class EnemyMove : MonoBehaviour {
 		availableNodes = GameObject.FindGameObjectsWithTag("Node");
 	}
 	
+	/**
+	 * Determines if the enemy is close enough to the Node
+	 * Prevents awkward movement behavior from float rounding issues
+	 */ 
 	private bool NodeContact(Vector3 transformPosition, Vector3 nodePosition) {
 		bool contact = false;
-		float accuracy = 0.01f;
+		float accuracy = 0.02f;
 		
 		if ((transformPosition - nodePosition).sqrMagnitude <= (transformPosition * accuracy).sqrMagnitude) {
 			contact = true;

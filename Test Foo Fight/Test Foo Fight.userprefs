@@ -1,8 +1,11 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\FoodThrowing.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\scale.cs">
     <Files>
-      <File FileName="Assets\FoodThrowing.cs" Line="22" Column="67" />
+      <File FileName="Assets\FoodThrowing.cs" Line="56" Column="3" />
+      <File FileName="Assets\EnemyMove.cs" Line="83" Column="2" />
+      <File FileName="Assets\EnemyThrowBehavior.cs" Line="28" Column="21" />
+      <File FileName="Assets\scale.cs" Line="10" Column="22" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
