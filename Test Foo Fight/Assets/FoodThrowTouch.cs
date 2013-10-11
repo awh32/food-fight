@@ -9,6 +9,7 @@ public class FoodThrowTouch : MonoBehaviour {
 	Vector3 lastPosition = Player.transform.position;
 	// Use this for initialization
 	void Start () {
+		Player = GameObject.Find("Player");
 	}
 	
 	// Update is called once per frame
@@ -20,7 +21,7 @@ public class FoodThrowTouch : MonoBehaviour {
 			rigidbody.AddForce(touchDeltaPosition.x * speed, touchDeltaPosition.y * speed, 0);
 		}
 		
-		//move the food object with the player so the don't look disconnected
+		//move the food object with the player so they don't look disconnected
 		if(Player.transform.position.x > lastPosition.x){
 			Vector3 temp = this.transform.position;
 			temp.x = temp.x + 1;
