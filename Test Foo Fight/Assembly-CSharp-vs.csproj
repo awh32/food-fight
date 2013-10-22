@@ -48,8 +48,10 @@
      <Compile Include="Assets\EnemyThrowBehavior.cs" />
      <Compile Include="Assets\FoodThrowTouch.cs" />
      <Compile Include="Assets\FoodThrowing.cs" />
+     <Compile Include="Assets\HUDPause.cs" />
      <Compile Include="Assets\NodeBehavior.cs" />
      <Compile Include="Assets\PlayerScript.cs" />
+     <Compile Include="Assets\PopUpPause.cs" />
      <Compile Include="Assets\scale.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
