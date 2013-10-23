@@ -1,9 +1,9 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\HUDPause.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\PopUpPause.cs">
     <Files>
-      <File FileName="Assets\HUDPause.cs" Line="11" Column="2" />
-      <File FileName="Assets\PopUpPause.cs" Line="14" Column="29" />
+      <File FileName="Assets\PopUpPause.cs" Line="7" Column="17" />
+      <File FileName="Assets\HUDPause.cs" Line="15" Column="37" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
