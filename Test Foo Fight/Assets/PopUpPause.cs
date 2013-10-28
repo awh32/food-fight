@@ -18,5 +18,17 @@ public class PopUpPause : MonoBehaviour {
 			this.gameObject.renderer.enabled = false;
 			
 		}
+		if(Input.GetKey(KeyCode.A)){
+			AudioListener.volume = AudioListener.volume - 0.1f;
+			if(AudioListener.volume < 0f){
+				AudioListener.volume = 0f;
+			}
+		}
+		if(Input.GetKey(KeyCode.S)){
+			AudioListener.volume = AudioListener.volume + 0.1f;
+			if(AudioListener.volume > 1f){
+				AudioListener.volume = 1f;
+			}
+		}
 	}
 }
